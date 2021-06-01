@@ -28,6 +28,25 @@
   color: #61dafb;
 }
 
+.titlecolor {
+  color: rebeccapurple;
+  font-family: 'Goblin One';
+  margin-top: 10px;
+}
+
+body {
+  background-color: rgb(250, 219, 250)
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 43%;
+  margin: auto;
+  color: red;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
