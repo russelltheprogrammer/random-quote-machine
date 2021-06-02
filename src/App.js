@@ -6,34 +6,51 @@ constructor(props){
   super(props);
     this.state = {
       loading: true,
-      quote: ""
+      text: "",
+      author: "",
   }
   this.handleClick = this.handleClick.bind(this);
+  this.fetchData = this.fetchData.bind(this);
 }
   
+async componentDidMount() {
+  this.fetchData();
+}
 
-  async componentDidMount() {
+fetchData() {
+  fetch('https://type.fit/api/quotes')
+  .then(response => response.json())
+  .then(data => this.setState({ text: data[0]["text"], author: data[1]["author"], loading: false}))
+  .catch(error => console.error(error));
+  
+}
+
+
+/*
+  fetchData() {
     const url = 'https://type.fit/api/quotes';
     const response = await fetch(url);
     const jsonData = await response.json();
     let randomIndex = Math.floor(Math.random() * jsonData.length);
 
-    this.setState({quote: Object.values(jsonData[randomIndex]), loading: false })
+    this.setState({text: Object.values(jsonData[randomIndex]["text"]), author: Object.values(jsonData[randomIndex]["author"]), loading: false })
     console.log(jsonData[randomIndex]);
   }
-
-  handleClick(){
+*/
+  handleClick() {
     this.setState({
-      quote: "new quote"
+      text: "",
+      author: ""
     });
   };
+
 
   render() {
 if (this.state.loading) {
   return <div>loading...</div>;
 }
 
-if (!this.state.quote) {
+if (!this.state.text & !this.state.author) {
   return <div>No Quote!</div>;
 }
 
@@ -45,12 +62,12 @@ if (!this.state.quote) {
           <div className="row">
           <div className="col">
               
-      <div id="text">"{this.state.quote[0]}"</div>
+      <div id="text">"{this.state.text}"</div>
       </div>
       </div>
       <div className="row">
       <div className="col">
-      <div id="author">~{this.state.quote[1]}</div>
+      <div id="author">~{this.state.author === null ? "Unknown" : this.state.author }</div>
       </div>
       </div>
 
