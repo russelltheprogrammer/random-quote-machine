@@ -19,8 +19,11 @@ async componentDidMount() {
 
 fetchData() {
   fetch('https://type.fit/api/quotes')
-  .then(response => response.json())
-  .then(data => this.setState({ text: data[0]["text"], author: data[1]["author"], loading: false}))
+  .then(response => {return response.json()
+  })
+  .then((data) => { let randomIndex = Math.floor(Math.random() * data.length);
+    this.setState({ text: data[randomIndex]["text"], author: data[randomIndex]["author"], loading: false})
+})
   .catch(error => console.error(error));
   
 }
@@ -75,7 +78,7 @@ if (!this.state.text & !this.state.author) {
       <div className="row">
           <div className="col">
               
-      <button onClick = {this.handleClick} id="new-quote">Click For New Quote</button>
+      <button onClick = {this.fetchData} id="new-quote">Click For New Quote</button>
       
       </div>
       <div className="col">
