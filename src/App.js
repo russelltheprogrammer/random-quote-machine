@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 
+
 class App extends React.Component {
 constructor(props){
   super(props);
@@ -9,7 +10,6 @@ constructor(props){
       text: "",
       author: "",
   }
-  this.handleClick = this.handleClick.bind(this);
   this.fetchData = this.fetchData.bind(this);
 }
   
@@ -19,34 +19,13 @@ async componentDidMount() {
 
 fetchData() {
   fetch('https://type.fit/api/quotes')
-  .then(response => {return response.json()
-  })
-  .then((data) => { let randomIndex = Math.floor(Math.random() * data.length);
-    this.setState({ text: data[randomIndex]["text"], author: data[randomIndex]["author"], loading: false})
+  .then(response => response.json())
+  .then(data => {let randomIndex = Math.floor(Math.random() * data.length);
+    this.setState({ text: data[randomIndex]["text"], author: data[randomIndex]["author"], loading: false })
 })
   .catch(error => console.error(error));
   
 }
-
-
-/*
-  fetchData() {
-    const url = 'https://type.fit/api/quotes';
-    const response = await fetch(url);
-    const jsonData = await response.json();
-    let randomIndex = Math.floor(Math.random() * jsonData.length);
-
-    this.setState({text: Object.values(jsonData[randomIndex]["text"]), author: Object.values(jsonData[randomIndex]["author"]), loading: false })
-    console.log(jsonData[randomIndex]);
-  }
-*/
-  handleClick() {
-    this.setState({
-      text: "",
-      author: ""
-    });
-  };
-
 
   render() {
 if (this.state.loading) {
@@ -57,39 +36,34 @@ if (!this.state.text & !this.state.author) {
   return <div>No Quote!</div>;
 }
 
-
     return (
 <div>
-      <wrapper className="centered" id="quote-box"> {/* wrapper is only used because FCC project asks for it */}
-
+    <div className="wrapper" id="quote-box"> {/* wrapper is only used because FCC project asks for it */}
+        <div id="quote-and-author">
+          <div className="row">
+          <div className="col"> 
+      <div id="text"><i className="fas fa-quote-left"></i> {this.state.text} <i className="fas fa-quote-right"></i></div>
+      </div>
+        </div>
           <div className="row">
           <div className="col">
-              
-      <div id="text">"{this.state.text}"</div>
+            <div id="author">~{this.state.author === null ? "Unknown" : this.state.author }</div>
+          </div>
+          </div>
       </div>
-      </div>
-      <div className="row">
-      <div className="col">
-      <div id="author">~{this.state.author === null ? "Unknown" : this.state.author }</div>
-      </div>
-      </div>
-
-      <div className="container">
-      <div className="row">
+      <div id="containertwo">
+          <div className="row">
           <div className="col">
-              
-      <button onClick = {this.fetchData} id="new-quote">Click For New Quote</button>
+          <button onClick = {this.fetchData} id="new-quote">Click For New Quote</button>
+          </div>
+          <div className="col" id="tweet-quote-box">
+          <a id="tweet-quote" href="twitter.com/intent/tweet" target="_blank">Tweet Quote</a>
+          </div>
+          </div>
+      </div>
       
-      </div>
-      <div className="col">
-      
-      <a id="tweet-quote" href="twitter.com/intent/tweet" target="_top">Tweet Quote</a>
-      
-      </div>
-      </div>
-      </div>
-   </wrapper>
    </div>
+</div>
     );
   }
 }
