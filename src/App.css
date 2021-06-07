@@ -56,23 +56,38 @@ margin-top: 20px;
   background-color: white;
   font-size: 20px;
   word-wrap: break-word;
-  
 }
+
 
 #new-quote {
   border-width: 5px;
   border-style: solid;
   border-color: black;
   padding: 5px;
+  background-color: red;
+  color: yellow;
+  font-weight: bold;
   
+}
+#new-quote:hover {
+  background-color: black;
 }
 
 #tweet-quote {
-  
+  background-color: white;
+  padding: 23px 15px 10px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black;
+}
+
+#tweet-quote:hover {
+  background-color: black;
 }
 
 #tweet-quote-box {
-background-color: yellow;
+margin-top: 5px;
+
 }
 
 #text {

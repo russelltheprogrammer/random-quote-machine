@@ -57,7 +57,12 @@ if (!this.state.text & !this.state.author) {
           <button onClick = {this.fetchData} id="new-quote">Click For New Quote</button>
           </div>
           <div className="col" id="tweet-quote-box">
-          <a id="tweet-quote" href="twitter.com/intent/tweet" target="_blank">Tweet Quote</a>
+          <a id="tweet-quote" href={"https://twitter.com/intent/tweet" + 
+          encodeURIComponent(
+            this.state.text + this.state.author
+          )
+        } 
+          target="_blank"><i class="fab fa-twitter" style={{fontSize: 36}}></i></a>
           </div>
           </div>
       </div>
