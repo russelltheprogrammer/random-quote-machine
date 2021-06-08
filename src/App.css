@@ -32,12 +32,19 @@ body {
   background-color: rgb(250, 219, 250)
 }
 
+.wrapper {
+  position: absolute;
+ 
+}
 
 #quote-box {
   position: absolute;
-  top: 30%;
-  left: 37.5%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   width: 500px;
+  height: 350px;
   margin: auto;
   text-align: center;
   
