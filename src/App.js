@@ -11,6 +11,7 @@ constructor(props){
       author: "",
   }
   this.fetchData = this.fetchData.bind(this);
+ 
 }
   
 async componentDidMount() {
@@ -26,6 +27,8 @@ fetchData() {
   .catch(error => console.error(error));
   
 }
+
+
 
   render() {
 if (this.state.loading) {
@@ -57,12 +60,9 @@ if (!this.state.text & !this.state.author) {
           <button onClick = {this.fetchData} id="new-quote">Click For New Quote</button>
           </div>
           <div className="col" id="tweet-quote-box">
-          <a id="tweet-quote" href={"https://twitter.com/intent/tweet" + 
-          encodeURIComponent(
-            this.state.text + this.state.author
-          )
-        } 
-          target="_blank"><i class="fab fa-twitter" style={{fontSize: 36}}></i></a>
+          <a id="tweet-quote" target="_blank" href={"https://twitter.com/intent/tweet?text=" + encodeURIComponent(
+            "'" + this.state.text + "'" + this.state.author)}>
+          <i className="fab fa-twitter" style={{fontSize: 36}}></i></a>
           </div>
           </div>
       </div>
