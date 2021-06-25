@@ -72,7 +72,7 @@ if (!this.state.text & !this.state.author) {
    <footer className="footer">
         Coded By <a 
 target="_blank"
-href="https://forum.freecodecamp.org/u/rundownx3">
+href="https://github.com/russelltheprogrammer">
   RussellTheProgrammer</a> for FCC curriculum
       </footer>
 </div>
