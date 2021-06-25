@@ -68,8 +68,13 @@ if (!this.state.text & !this.state.author) {
           </div>
           </div>
       </div>
-      
    </div>
+   <footer className="footer">
+        Coded By <a 
+target="_blank"
+href="https://forum.freecodecamp.org/u/rundownx3">
+  RussellTheProgrammer</a> for FCC curriculum
+      </footer>
 </div>
     );
   }
