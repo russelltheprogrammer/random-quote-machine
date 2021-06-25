@@ -1,10 +1,11 @@
-# Link to RandomQuote Machine --> [Randome Quote Machine]("http://russelltheprogrammer.github.io/randomquotemachine")
+# Link to Random Quote Machine --> [Random Quote Machine](http://russelltheprogrammer.github.io/randomquotemachine)
 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+
 
 In the project directory, you can run:
 
