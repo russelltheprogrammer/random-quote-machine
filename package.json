@@ -1,6 +1,6 @@
 {
-  "homepage": "http://russelltheprogrammer.github.io/randomquotemachine",
-  "name": "randomquotemachine",
+  "homepage": "http://russelltheprogrammer.github.io/random-quote-machine",
+  "name": "random-quote-machine",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

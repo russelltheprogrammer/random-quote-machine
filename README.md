@@ -1,4 +1,4 @@
-# Link to Random Quote Machine --> [Random Quote Machine](http://russelltheprogrammer.github.io/randomquotemachine)
+# Link to Random Quote Machine --> [Random Quote Machine](http://russelltheprogrammer.github.io/random-quote-machine)
 
 # Getting Started with Create React App
 
